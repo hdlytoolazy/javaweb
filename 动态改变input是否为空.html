@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>demo</title>
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js">
+</script>
+<style type="text/css">
+</style>
+</head>
+
+<body>
+<script>
+//$(function(){
+//    console.log('3333332222')
+    // aa();
+//})
+
+function aa(e){
+    //$('#inputB').val('123')
+    var v = $(e.target).val();
+    console.log(v)
+    if (v == '1') {
+        $('#inputB').attr('required', true)
+		$('#inputB').attr('checkType', "empty")
+        $('#inputC').removeAttr('required')
+		$('#inputC').removeAttr('checkType')
+    } else if (v == '2') {
+        $('#inputC').attr('required', true)
+		$('#inputC').attr('checkType', "empty")
+        $('#inputB').removeAttr('required')
+		$('#inputB').removeAttr('checkType')
+    } else {
+        $('#inputB').removeAttr('required')
+        $('#inputC').removeAttr('required')
+		$('#inputB').removeAttr('checkType')
+        $('#inputC').removeAttr('checkType')
+    }
+} 
+$("form").submit(function(e){
+  console.log("Submitted");
+});
+
+</script>
+    <form>
+        <input type="" name="inputA" id="inputA" oninput="aa(event)" onporpertychange="aa(event)" ddd="1">
+        <input type="" name="inputB" id="inputB">
+        <input type="" name="inputC" id="inputC">
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
